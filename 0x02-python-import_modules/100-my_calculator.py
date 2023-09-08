@@ -1,25 +1,25 @@
-from calculator_1 import add, sub, mul, div
-import sys
-
+#!/usr/bin/python3
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+    import sys
+    from calculator_1 import add, sub, mul, div
+
+    argc = len(sys.argv)
+    if argc != 4:
+        print("Usage: {} <a> <operator> <b>".format(sys.argv[0]))
         sys.exit(1)
+    argI1 = int(sys.argv[1])
+    argI3 = int(sys.argv[3])
+    if sys.argv[2] == "+":
+        print("{} + {} = {}".format(argI1, argI3, add(argI1, argI3)))
 
-    a = int(sys.argv[1])
-    operator = sys.argv[2]
-    b = int(sys.argv[3])
+    elif sys.argv[2] == "-":
+        print("{} - {} = {}".format(argI1, argI3, sub(argI1, argI3)))
 
-    if operator == "+":
-        result = add(a, b)
-    elif operator == "-":
-        result = sub(a, b)
-    elif operator == "*":
-        result = mul(a, b)
-    elif operator == "/":
-        result = div(a, b)
+    elif sys.argv[2] == "*":
+        print("{} * {} = {}".format(argI1, argI3, mul(argI1, argI3)))
+
+    elif sys.argv[2] == "/":
+        print("{} / {} = {}".format(argI1, argI3, div(argI1, argI3)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
-
-    print("{} {} {} = {}".format(a, operator, b, result))
+        exit(1)
