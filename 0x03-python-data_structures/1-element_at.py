@@ -1,7 +1,5 @@
-     i in range(len(my_list)):
-        if(i == idx):
-            return (my_list[i])
-    return Nt(my_list, idx):
+#!/usr/bin/python3
+def element_at(my_list, idx):
     if (idx > len(my_list)):
         return None
 
@@ -9,4 +7,4 @@
         if (i == idx):
             return (my_list[i])
 
-    return Noneone
+    return None     
