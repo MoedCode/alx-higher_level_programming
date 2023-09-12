@@ -1,24 +1,20 @@
 #include <Python.h>
-
+#include <stdio.h>
 void print_python_list_info(PyObject *p)
 {
+	PyObject *element;
+	int size, mem_allocated, i = 0;
 
-	if (PyList_Check(p))
+	size = Py_SIZE(p);
+	printf("[*] Size of the Python List = %d\n", size);
+
+	mem_allocated = ((PyListObject *)p)->allocated;
+	printf("[*] Allocated = %d\n", mem_allocated);
+
+	while (i < size)
 	{
-		Py_ssize_t size = PyList_Size(p);
-		Py_ssize_t alloc = ((PyListObject *)p)->allocated;
-
-		printf("[*] Size of the Python List = %ld\n", size);
-		printf("[*] Allocated = %ld\n", alloc);
-
-
-		for (Py_ssize_t i = 0; i < size; i++)
-		{
-			PyObject *item = PyList_GetItem(p, i);
-			printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
-
-
-			Py_DECREF(item);
-		}
+		element = PyList_GetItem(p, i);
+		printf("Element %d: %s\n", i, Py_TYPE(element)->tp_name);
+		i++;
 	}
 }
