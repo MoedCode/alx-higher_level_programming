@@ -6,10 +6,10 @@ def roman_to_int(roman_string):
                   'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     INT_N = 0
     for key in range(len(roman_string)):
-        if key > 0 and roman_dict[roman_string[key]] > roman_dict[roman_string[key - 1]]:
+        if key > 0 and roman_dict[roman_string[key]] >\
+                roman_dict[roman_string[key - 1]]:
             INT_N += roman_dict[roman_string[key]] - \
                 2 * roman_dict[roman_string[key - 1]]
         else:
             INT_N += roman_dict[roman_string[key]]
     return INT_N
-
