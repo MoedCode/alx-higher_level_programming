@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 def safe_print_integer(value):
-    if isinstance(value, int):
-        print("{:d}".format(value))
+    try:
+        # change the value by force :rage:
+        int_value = int(value)
+        print("{:d}".format(int_value))
         return True
-    else:
+    except (ValueError, TypeError):
         print("{} is not an integer".format(value))
         return False
