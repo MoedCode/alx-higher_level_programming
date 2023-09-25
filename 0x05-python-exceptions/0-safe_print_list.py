@@ -11,4 +11,4 @@ def safe_print_list(my_list=[], x=0):
         pass
 
     print()  # Print a new line to end the output
-    return count
+    return count - 1
