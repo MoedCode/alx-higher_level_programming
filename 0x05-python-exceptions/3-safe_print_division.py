@@ -4,7 +4,7 @@ def safe_print_division(a, b):
     try:
         if a % b == 0:
             result = a/b
-        print("{:d} / {:d} = {}".format(a, b, a/b))
+        print("{:d} / {:d} = {:.1f}".format(a, b, a/b))
     except Exception:
         result = None
     finally:
