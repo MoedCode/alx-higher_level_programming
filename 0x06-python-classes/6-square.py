@@ -1,17 +1,9 @@
 #!/usr/bin/python3
-"""
-Square Class - Defines a square and its properties including size and position.
-"""
+"""Square Class"""
 
 
 class Square:
-    """
-    Square Class - Defines a square and its properties.
-
-    Attributes:
-        size (int): The side length of the square.
-        position (tuple): The position of the square on the screen.
-    """
+    """Define a square with size and position attributes."""
 
     def __init__(self, size=0, position=(0, 0)):
         """
@@ -26,7 +18,8 @@ class Square:
         self.position = position
 
     def area(self):
-        """Calculate the area of the square.
+        """
+        Calculate the area of the square.
 
         Returns:
             int: The area of the square.
@@ -35,7 +28,8 @@ class Square:
 
     @property
     def size(self):
-        """Get the side length of the square.
+        """
+        Get the side length of the square.
 
         Returns:
             int: The side length of the square.
@@ -44,7 +38,8 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Set the side length of the square.
+        """
+        Set the side length of the square.
 
         Args:
             value (int): The side length to set.
@@ -61,7 +56,8 @@ class Square:
 
     @property
     def position(self):
-        """Get the position of the square on the screen.
+        """
+        Get the position of the square on the screen.
 
         Returns:
             tuple: The position of the square (x, y).
@@ -70,7 +66,8 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """Set the position of the square on the screen.
+        """
+        Set the position of the square on the screen.
 
         Args:
             value (tuple): The position to set (x, y).
@@ -79,14 +76,15 @@ class Square:
             TypeError: If position is not a tuple of 2 non-negative integers.
         """
         if not isinstance(value, tuple) or len(value) != 2 \
-           or not all(isinstance(i, int) and i >= 0 for i in value):
+           or not all(isinstance(coord, int) and coord >= 0 for coord in value):
             raise TypeError(
                 'position must be a tuple of 2 non-negative integers')
         else:
             self.__position = value
 
     def my_print(self):
-        """Print the square using '#' characters.
+        """
+        Print the square using '#' characters.
 
         If size is 0, an empty line is printed.
         """
@@ -97,7 +95,7 @@ class Square:
         for _ in range(self.position[1]):
             print()
 
-        for i in range(self.size):
+        for _ in range(self.size):
             for _ in range(self.position[0]):
                 print(" ", end="")
 
