@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""Square class"""
-
 
 class Square:
     """Define a square with size and position attributes."""
@@ -59,4 +57,5 @@ class Square:
             for _ in range(self.size):
                 print("#", end="")
             print("")
+
 
