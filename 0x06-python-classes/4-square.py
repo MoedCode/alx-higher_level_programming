@@ -1,52 +1,62 @@
 #!/usr/bin/python3
+"""Square Class - Defines a square and its properties."""
+
 
 class Square:
-    """Square class with getter, setter, and area method."""
+    """Square Class - Defines a square and its properties."""
 
     def __init__(self, size=0):
-        """Initialize a Square instance.
+        """Initialize a square.
 
         Args:
-            size (int, optional): The size of the square. Defaults to 0.
+            size (int, optional): The side length of the square. Defaults to 0.
         """
         self.__size = size
 
+    def area(self):
+        """Calculate the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size * self.__size
+
     @property
     def size(self):
-        """Get the size of the square."""
+        """Get the side length of the square.
+
+        Returns:
+            int: The side length of the square.
+        """
         return self.__size
 
     @size.setter
-    def size(self, value):
-        """Set the size of the square.
+    def size(self, size):
+        """Set the side length of the square.
 
         Args:
-            value (int): The size to set.
+            size (int): The side length to set.
 
         Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than 0.
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
         """
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def area(self):
-        """Calculate and return the area of the square."""
-        return self.__size ** 2
+        self.__size = size
 
 
 if __name__ == "__main__":
     my_square = Square(89)
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+    print(f"Area: {my_square.area()} for size: {my_square.size}")
 
     my_square.size = 3
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+    print(f"Area: {my_square.area()} for size: {my_square.size}")
 
     try:
         my_square.size = "5 feet"
-        print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+        print(f"Area: {my_square.area()} for size: {my_square.size}")
     except Exception as e:
         print(e)
