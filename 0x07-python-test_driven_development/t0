@@ -1,0 +1,32 @@
+Sure, let's break down the requirements for task 0:
+
+**Task 0: Integers Addition**
+
+1. **Function Definition**: You need to write a Python function called `add_integer` that takes two arguments, `a` and `b`, with a default value of 98 for `b`.
+
+2. **Argument Validation**: Before performing any addition, you should validate the input arguments:
+
+   - Both `a` and `b` must be either integers or floats.
+   - If either `a` or `b` is a float, you should cast it to an integer.
+
+3. **Return Value**: The function should return an integer, which is the result of adding `a` and `b`.
+
+4. **No Importing**: You are not allowed to import any external modules or libraries.
+
+5. **Error Handling**: If the input arguments do not meet the validation criteria, you should raise a `TypeError` exception with an appropriate error message. For example, if `a` is not an integer, the message should be "a must be an integer."
+
+6. **Testing**: You should create a test file named `0-add_integer.txt` in a folder named `tests`. This test file should contain test cases for your `add_integer` function.
+
+7. **Test Execution**: Your tests should be executed using the following command:
+
+   ```bash
+   python3 -m doctest ./tests/0-add_integer.txt
+   ```
+
+8. **Documentation**: Both your module (0-add_integer.py) and the `add_integer` function should have proper documentation. Documentation is described as real sentences explaining the purpose of the module or function. The length of the documentation will be verified.
+
+9. **Collaboration**: You are encouraged to work together on test cases to ensure that edge cases are covered.
+
+10. **Example Output**: An example of how the program should behave when run is provided in the `guillaume@ubuntu:~/0x07$` section. It demonstrates calling the function with different inputs and handling exceptions.
+
+In summary, this task requires you to create a Python function that adds two integers or floats, with appropriate input validation and error handling. You should also provide documentation and test cases for your function.
