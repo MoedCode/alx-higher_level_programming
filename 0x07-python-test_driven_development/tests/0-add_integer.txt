@@ -1,96 +1,62 @@
-"""
-0-add_integer Module
+# 0-add_integer Module
 
-This module provides a function, add_integer, that takes two integer or float arguments and returns their sum.
-"""
+This module provides a function, `add_integer`, that takes two integer or float arguments and returns their sum.
 
 # Importing the add_integer function from the module
->> > add_integer = __import__('0-add_integer').add_integer
-
-# Example Usages:
+>>> add_integer = __import__('0-add_integer').add_integer
 
 # Test case 1: Adding two positive integers
->> > add_integer(2, 3)
+>>> add_integer(2, 3)
 5
 
 # Test case 2: Adding a positive integer and a negative integer
->> > add_integer(100, -2)
+>>> add_integer(100, -2)
 98
 
 # Test case 3: Adding with the default value of b
->> > add_integer(2)
+>>> add_integer(2)
 100
 
 # Test case 4: Adding two floats
->> > add_integer(100.3, -2)
+>>> add_integer(100.3, -2)
 98
 
 # Test case 5: Adding an integer and 0.0, which should cast to an integer
->> > add_integer(0.0)
+>>> add_integer(0.0)
 98
 
-# Test case 6: Adding an integer and 0.0, which should cast to an integer
->> > add_integer(0.0)
-98
-
-# Test case 7:  add 0.0 and None, which should raise a TypeError
->> > add_integer(0.0, None)
-Traceback(most recent call last):
+# Test case 6: Attempt to add a float and None, which should raise a TypeError
+>>> add_integer(5.7, None)
+Traceback (most recent call last):
     ...
-TypeError: b must be an integer
+TypeError: a and b must be integers or floats
 
-# Test case 8:  add a string (should raise a TypeError)
->> > add_integer(4, "School")
-Traceback(most recent call last):
-    File "<stdin>", line 1, in <module >
-    File "0-add_integer.py", line XX, in add_integer
-    raise TypeError("b must be an integer")
-TypeError: b must be an integer
-# Test case 9:  add an integer and a string, which should raise a TypeError
->> > add_integer(0, "pepe")
-Traceback(most recent call last):
+# Test case 7: Attempt to add an integer and a string, which should raise a TypeError
+>>> add_integer(0, "pepe")
+Traceback (most recent call last):
     ...
-TypeError: b must be an integer
+TypeError: a and b must be integers or floats
 
-# Test case 10:  add None (should raise a TypeError)
->> > add_integer(None)
-Traceback(most recent call last):
-    File "<stdin>", line 1, in <module >
-    File "0-add_integer.py", line XX, in add_integer
-    raise TypeError("a must be an integer")
-TypeError: a must be an integer
+# Test case 8: Attempt to add None, which should raise a TypeError
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a and b must be integers or floats
 
-# Test case 11:  add a string and an integer, which should raise a TypeError
->> > add_integer("pepe", 1)
-Traceback(most recent call last):
+# Test case 9: Attempt to add a string and an integer, which should raise a TypeError
+>>> add_integer("pepe", 1)
+Traceback (most recent call last):
     ...
-TypeError: a must be an integer
-# Test case 12:  add a string represented as integer and an integer, which should raise a TypeError
->> > add_integer('3', 3)
-Traceback(most recent call last):
-    ...
-TypeError: a must be an integer
+TypeError: a and b must be integers or floats
 
-# Test case 13: Attempt to add None, should raise a TypeError
->> > add_integer(None)
-Traceback(most recent call last):
+# Test case 10: Attempt to add a string represented as an integer and an integer, which should raise a TypeError
+>>> add_integer('3', 3)
+Traceback (most recent call last):
     ...
-TypeError: a must be an integer
+TypeError: a and b must be integers or floats
 
-# Test case 14: add a string,  should raise a TypeError
->> > add_integer("string")
-Traceback(most recent call last):
+# Test case 11: Attempt to add an integer and an empty list, which should raise a TypeError
+>>> add_integer(256, [])
+Traceback (most recent call last):
     ...
-TypeError: a must be an integer
-
-# Test case 15: add an integer and an empty list, should raise a TypeError
->> > add_integer(256, [])
-Traceback(most recent call last):
-    ...
-TypeError: b must be an integer
-
-# Test case 16: add a tuple,  should raise a TypeError
->> > add_integer((1, 1))
-Traceback(most recent call last):
-    ...
-TypeError: a must be an integer
+TypeError: a and b must be integers or floats
