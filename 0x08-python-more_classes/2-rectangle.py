@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
-The Rectangle Module:
+ Rectangle Module:
 """
 
 
 class Rectangle:
     """
+    Rectangle class:
+    it has two attributes that get , set width and height
     Rectangle class:
     it has two attributes width and height
     """
@@ -52,4 +54,3 @@ class Rectangle:
             return (self.__width * 2 + self.__height * 2)
         else:
             return (0)
-
