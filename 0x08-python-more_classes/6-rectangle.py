@@ -1,14 +1,27 @@
 #!/usr/bin/python3
-
-"""_summary_"""
+"""
+ Rectangle Module:
+"""
 
 
 class Rectangle:
-    """ Rectangle """
+    """
+    Rectangle class:
+    it has two attributes that get , set width and height
+    Rectangle class:
+    it has two attributes width and height
+    """
 
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+        if not isinstance(width, int) or not isinstance(height, int):
+            TEM = 'width' if not isinstance(width, int) else 'height'
+            raise TypeError(TEM + 'must be an integer')
+        if height < 0 or width < 0:
+            VEM = 'width' if width < 0 else 'height'
+            raise ValueError(VEM + 'must be >= 0')
+
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
