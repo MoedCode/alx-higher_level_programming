@@ -55,7 +55,6 @@ class Rectangle:
             ValueError: If value is negative.
         """
 
-
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -83,7 +82,6 @@ class Rectangle:
             TypeError: If value is not an integer.
             ValueError: If value is negative.
         """
-
 
         if type(value) is not int:
             raise TypeError("height must be an integer")
@@ -122,7 +120,6 @@ class Rectangle:
             if i is not self.__height - 1:
                 rectangle += ['\n']
         return ''.join(rectangle)
-
 
     def __repr__(self):
         """Return a string representation that can be used with eval().
@@ -176,5 +173,4 @@ class Rectangle:
         Args:
             size (int, optional): the size of the square instance
         """
-
         return cls(size, size)
