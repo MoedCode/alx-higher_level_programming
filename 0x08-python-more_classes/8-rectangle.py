@@ -133,10 +133,10 @@ class Rectangle:
             str: A string representing the constructor of the rectangle.
         """
 
-        string = []
-        string.append("Rectangle(")
-        string.append(str(self.__width) + ", " + str(self.__height) + ')')
-        return ''.join(string)
+        eva_str = []
+        eva_str += ["Rectangle("]
+        eva_str = [str(self.__width) + ", " + str(self.__height) + ')']
+        return ''.join(eva_str)
 
     def __del__(self):
         """Perform actions when an instance is deleted."""
