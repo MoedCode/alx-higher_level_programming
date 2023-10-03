@@ -84,4 +84,3 @@ if __name__ == "__main__":
     my_rectangle.height = 3
     print(my_rectangle)
     print(repr(my_rectangle))
-
