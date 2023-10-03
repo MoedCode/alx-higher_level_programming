@@ -42,12 +42,10 @@ class Rectangle:
 
     @property
     def height(self):
-        """ height """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """ height """
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
@@ -65,17 +63,17 @@ class Rectangle:
         return (self.__height+self.__width)*2
 
     def __str__(self):
-        str = ""
+        """printing and using str() functions"""
 
-        if self.width == 0 or self.height == 0:
-            return str
-
-        for i in range(self.height):
-            str += (self.width*"#")
-
-            if i != self.height-1:
-                str += "\n"
-        return str
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        rectangle = []
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rectangle += ['#']
+            if i is not self.__height - 1:
+                rectangle += ['\n']
+        return ''.join(rectangle)
 
     def __repr__(self):
         return f"Rectangle({self.width:d}, {self.height})"
