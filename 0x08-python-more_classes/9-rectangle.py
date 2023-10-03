@@ -125,12 +125,16 @@ class Rectangle:
 
 
     def __repr__(self):
-        """Creates a string that works with the eval() function"""
+        """Return a string representation that can be used with eval().
 
-        string = []
-        string.append("Rectangle(")
-        string.append(str(self.__width) + ", " + str(self.__height) + ')')
-        return ''.join(string)
+        Returns:
+            str: A string representing the constructor of the rectangle.
+        """
+
+        eva_str = []
+        eva_str += ["Rectangle("]
+        eva_str = [str(self.__width) + ", " + str(self.__height) + ')']
+        return ''.join(eva_str)
 
     def __del__(self):
         """Functionality for when an instance is deleted"""
