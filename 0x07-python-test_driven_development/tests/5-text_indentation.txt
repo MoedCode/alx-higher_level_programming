@@ -1,92 +1,111 @@
-"""
-The 5-text_indentation Module:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
->>> text_indentation = __import__("5-text_indentation").text_indentation
 
-# Correct Usage - Case 1
->>> text_indentation("Howdy, Yall!")
-Howdy, Yall!
 
-# Correct Usage - Case 2
->>> t = "Hello. I am a string? Here is what you should do: parse me."
->>> text_indentation(t)
-Hello.
-<BLANKLINE>
-I am a string?
-<BLANKLINE>
-Here is what you should do:
-<BLANKLINE>
-parse me.
-<BLANKLINE>
+Case no delim:
+    >>> text_indentation("Hello String")
+    Hello String
 
-# Correct Usage - Case 3
->>> t = "Hello. : \nI am a string? .\n"
->>> text_indentation(t)
-Hello.
-<BLANKLINE>
-:
-<BLANKLINE>
-<BLANKLINE>
-I am a string?
-<BLANKLINE>
-.
-<BLANKLINE>
-<BLANKLINE>
+Case string with spaces:
+    >>> text_indentation("String          ")
+    String
 
-# Correct Usage - Case 4
->>> t = " : . ? "
->>> text_indentation(t)
-:
-<BLANKLINE>
-.
-<BLANKLINE>
-?
-<BLANKLINE>
+Case string with spaces 2:
+    >>> text_indentation("        String")
+    String
 
-# Correct Usage - Case 5
->>> t = "    MY SPOON IS TOO BIG!...    I am a banana.\n     blearg    "
->>> text_indentation(t)
-MY SPOON IS TOO BIG!.
-<BLANKLINE>
-.
-<BLANKLINE>
-.
-<BLANKLINE>
-I am a banana.
-<BLANKLINE>
-<BLANKLINE>
-blearg
+Case string with spaces 3:
+    >>> text_indentation("        String          ")
+    String
 
-# Correct Usage - Case 6
->>> t = "Mwa" + "ha" * 2
->>> text_indentation(t)
-Mwahaha
+Case string with empty string:
+    >>> text_indentation("")
 
-# Correct Usage - Case 7
->>> text_indentation("")
+Case string with empty string 2:
+    >>> text_indentation("      ")
 
-# On Errors - Case 1
->>> text_indentation()
-Traceback (most recent call last):
-TypeError: text_indentation() missing 1 required positional argument: 'text'
+Case simple:
+    >>> text_indentation("Hello: String")
+    Hello:
+    <BLANKLINE>
+    String
 
-# On Errors - Case 2
->>> text_indentation("ble", "ooh", "wah")
-Traceback (most recent call last):
-TypeError: text_indentation() takes 1 positional argument but 3 were given
+Case delims with spaces:
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
 
-# On Errors - Case 3
->>> text_indentation(4)
-Traceback (most recent call last):
-TypeError: text must be a string
+Case newline:
+    >>> text_indentation("\n")
+    <BLANKLINE>
 
-# On Errors - Case 4
->>> text_indentation(None)
-Traceback (most recent call last):
-TypeError: text must be a string
+Case newline 2:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
 
-# On Errors - Case 5
->>> text_indentation(-4)
-Traceback (most recent call last):
-TypeError: text must be a string
-"""
+Case newline 3:
+    >>> text_indentation("Hello\n\n")
+    Hello
+    <BLANKLINE>
+
+Case all delimeters:
+    >>> text_indentation("Hello: String? school. fooo")
+    Hello:
+    <BLANKLINE>
+    String?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+
+
+Case just delimeters:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Case just delimeters 2:
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+Case nonindent inside indent
+    >>> text_indentation("?Hello.")
+    ?
+    <BLANKLINE>
+    Hello.
+    <BLANKLINE>
+
+Case existing newlines:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Case none:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Case number:
+    >>> text_indentation(33)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string

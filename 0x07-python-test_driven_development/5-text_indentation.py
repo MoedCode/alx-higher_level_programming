@@ -1,27 +1,30 @@
 #!/usr/bin/python3
-"""prints a text with 2 new lines after each of these characters: ., ? and :"""
+"""summary"""
 
 
 def text_indentation(text):
-    """splits a  text if it incounters  : ., ?
-    Args:
-        text (str): the  text to split
-    Raises:
-        TypeError: if program called any type ecxept string
-    """
+    """text_indentation"""
+    is_next_whiteSpace = True
+    string = ""
 
-    if type(text) != str:
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
-    i = 0
-    text = text.strip()
-    while i < len(text):
-        print(text[i], end='')
-        if text[i] == '.' or text[i] == '?' or text[i] == ':':
-            print('\n')
-            if i == len(text) - 1:
-                break
-            if text[i + 1] == ' ':
-                i += 1
-            while text[i] == ' ' and text[i + 1] == ' ' and i + 1 < len(text):
-                i += 1
-        i += 1
+
+    for i in range(len(text)):
+
+        if is_next_whiteSpace and text[i] == " ":
+            continue
+
+        is_next_whiteSpace = False
+
+        string += text[i]
+
+        if text[i] == "." or text[i] == "?" or text[i] == ":":
+
+            if i < len(text) - 1 and text[i+1] == " ":
+                is_next_whiteSpace = True
+
+            string += "\n\n"
+
+    string = string.rstrip(' ')
+    print(string, end="")
