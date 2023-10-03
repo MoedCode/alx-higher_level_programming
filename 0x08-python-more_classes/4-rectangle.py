@@ -23,7 +23,7 @@ class Rectangle:
         self.__height = height
 
     def __str__(self):
-        """printing and using str() functions"""
+        """Functionality for printing and using str() functions"""
 
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -32,7 +32,7 @@ class Rectangle:
             for j in range(self.__width):
                 rectangle += ['#']
             if i is not self.__height - 1:
-                rectangle += '\n'
+                rectangle += ['\n']
         return ''.join(rectangle)
 
     @property
@@ -68,19 +68,5 @@ class Rectangle:
         else:
             return (0)
 
-
-if __name__ == "__main__":
-
-    my_rectangle = Rectangle(2, 4)
-    print("Area: {} - Perimeter: {}".format(my_rectangle.area(),
-          my_rectangle.perimeter()))
-
-    print(str(my_rectangle))
-    print(repr(my_rectangle))
-
-    print("--")
-
-    my_rectangle.width = 10
-    my_rectangle.height = 3
-    print(my_rectangle)
-    print(repr(my_rectangle))
+    def __repr__(self):
+        return ("Rectangle({:d}, {:d})".format(self.__width, self.__height))
