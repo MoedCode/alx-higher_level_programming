@@ -122,9 +122,9 @@ class Rectangle:
         rectangle = []
         for i in range(self.__height):
             for j in range(self.__width):
-                rectangle.append(str(self.print_symbol))
+                rectangle += [str(self.print_symbol)]
             if i is not self.__height - 1:
-                rectangle.append('\n')
+                rectangle += ['\n']
         return ''.join(rectangle)
 
     def __repr__(self):
