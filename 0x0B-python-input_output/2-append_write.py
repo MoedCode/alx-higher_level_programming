@@ -4,7 +4,7 @@ module counts the number of lines of a text file
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     write_file: write given buffer to file
     if file does not exist it creates one
