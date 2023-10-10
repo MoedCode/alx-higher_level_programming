@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module pars string object to  JSON
+module  stringify object to  JSON
 """
 
 import json
