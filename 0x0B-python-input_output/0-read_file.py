@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-""" module: read file """
+"function reads from a file"
 
 
 def read_file(filename=""):
-    """ rads file print its content to terminal"""
-
-    with open(filename, "r", encoding="utf-8") as FILE:
-        for line in FILE:
-            print(line, end=" ")
+    "function reads from a file"
+    with open(filename, "r", encoding="UTF8") as file:
+        for line in file:
+            print(line, end="")
