@@ -7,5 +7,6 @@ def number_of_lines(filename=""):
     with open(filename, "r", encoding="UTF8") as FILE:
         LINE = 0
         for line in FILE:
-            LINE++
+            print(line, end="")
+            LINE += 1
     return LINE
