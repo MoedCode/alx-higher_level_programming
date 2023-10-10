@@ -6,10 +6,10 @@ This script defines a class named BaseGeometry and a subclass named Rectangle.
 
 class BaseGeometry:
     """
-     A class with two public instance methods: area() and integer_validator().
-     The area() method raises an exception when called.
-     The integer_validator() method validates that a given value is an integer greater than 0.
-    """
+A class with two public instance methods: area() and integer_validator().
+The area() method raises an exception when called.
+he integer_validator() method validates that a given value is an integer greater than 0.
+"""
 
     def area(self):
         """Raises an exception when called."""
@@ -46,4 +46,3 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """Informal string representation of the rectangle."""
         return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
-
