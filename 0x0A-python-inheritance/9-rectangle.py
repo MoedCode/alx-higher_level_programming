@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 """
-This script defines a class named BaseGeometry and a subclass named Rectangle.
+class BaseGeometry and subclass Rectangle
 """
 
 
 class BaseGeometry:
-    """
-A class with two public instance methods: area() and integer_validator().
-The area() method raises an exception when called.
-he integer_validator() method validates that a given value is an integer greater than 0.
-"""
+    """ public e methods area for integer validation"""
 
     def area(self):
         """Raises an exception when called."""
