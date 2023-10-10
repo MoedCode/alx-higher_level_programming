@@ -5,11 +5,7 @@ Defines classes for geometric shapes: 'BaseGeometry', 'Rectangle', and 'Square'.
 
 
 class BaseGeometry:
-    """
-    A base class with methods for geometric calculations and validation.
-    - 'area()' raises an exception.
-    - 'integer_validator()' validates that a value is a positive integer.
-    """
+    """A base class with methods for geometric calculations and validation."""
 
     def area(self):
         """Raises an exception when called."""
