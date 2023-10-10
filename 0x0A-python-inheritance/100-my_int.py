@@ -6,11 +6,8 @@ Defines a custom class 'MyInt' that inherits from 'int' but reverses the behavio
 
 
 class MyInt(int):
-    """
-    A custom integer class that behaves in the opposite way for equality comparisons.
-    - '==': Compares inequality instead of equality.
-    - '!=': Compares equality instead of inequality.
-    """
+    """ A custom integer class that behaves"""
+
     def __new__(cls, *args, **kwargs):
         """Create a new instance of the class."""
         return super(MyInt, cls).__new__(cls, *args, **kwargs)
