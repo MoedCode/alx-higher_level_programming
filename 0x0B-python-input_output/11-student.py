@@ -23,7 +23,20 @@ class Student:
         Args:
             attrs:  (list) "Optional" , attributes to represent.
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        dictionary = {}
+        if attrs is None:
+            return vars(self)
+        for i in attrs:
+            if i in vars(self).keys():
+                dictionary[i] = vars(self)[i]
+
+    def reload_from_json(self, json):
+
+        if json.get("first_name"):
+            self.first_name = json["first_name"]
+
+        if json.get("last_name"):
+            self.last_name = json["last_name"]
+
+        if json.get("age"):
+            self.age = json["age"]
