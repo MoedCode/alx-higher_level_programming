@@ -3,6 +3,12 @@
 import json
 import csv
 
+"""
+code ware
+leet code
+challenging  => code force
+"""
+
 
 class Base:
     """Base class for managing id attribute."""
@@ -55,7 +61,6 @@ class Base:
     def create(cls, **dictionary):
         """Create and return a new object based on its dictionary representation."""
 
-
     @classmethod
     def create(cls, **dictionary):
         """Return: class instantiated from a dictionary of attributes.
@@ -78,14 +83,10 @@ class Base:
         """
         fileName = str(cls.__name__) + ".json"
         try:
-            with  open(fileName, "r") as FILE:
+            with open(fileName, "r") as FILE:
                 instList = Base.from_json_string(FILE.read())
 
-            return [cls.create(**inst)  for inst in instList]
-
+            return [cls.create(**inst) for inst in instList]
 
         except:
-                IOError("mfesh nasep")
-
-
-
+            IOError("mfesh nasep")
