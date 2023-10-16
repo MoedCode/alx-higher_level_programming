@@ -2,6 +2,7 @@
 """Defines a rectangle class."""
 from models.base import Base
 
+
 class Rectangle(Base):
     """Represent a rectangle."""
 
@@ -106,7 +107,8 @@ class Rectangle(Base):
         A function that updates the attributes of the rectangle depending on how many parameters given.
         """
         if args:
-            attributes = ["id", "_Rectangle__width", "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
+            attributes = ["id", "_Rectangle__width",
+                          "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
             for i in range(min(len(args), len(attributes))):
                 setattr(self, attributes[i], args[i])
         if kwargs:

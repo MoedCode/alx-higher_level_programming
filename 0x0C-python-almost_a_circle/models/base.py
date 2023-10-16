@@ -122,12 +122,12 @@ class Base:
         try:
             with open(filename, "r", instline="") as csvfile:
                 if cls.__name__ == "Rectangle":
-                     list_attribute = ["id", "width", "height", "x", "y"]
+                    list_attribute = ["id", "width", "height", "x", "y"]
                 else:
-                     list_attribute = ["id", "size", "x", "y"]
-                inst_list = csv.DictReader(csvfile, fieldnames= list_attribute)
+                    list_attribute = ["id", "size", "x", "y"]
+                inst_list = csv.DictReader(csvfile, fieldnames=list_attribute)
                 inst_list = [dict([k, int(v)] for k, v in d.items())
-                              for d in inst_list]
+                             for d in inst_list]
                 return [cls.create(**d) for d in inst_list]
         except IOError:
             return []
