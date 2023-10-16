@@ -41,12 +41,12 @@ class Base:
             list_objs (list): A list of inherited Base instances.
         """
         filename = cls.__name__ + ".json"
-        with open(filename, "w") as jsonfile:
+        with open(filename, "w") as FILE:
             if list_objs is None:
-                jsonfile.write("[]")
+                FILE.write("[]")
             else:
-                list_dicts = [o.to_dictionary() for o in list_objs]
-                jsonfile.write(Base.to_json_string(list_dicts))
+                inst_list = [o.to_dictionary() for o in list_objs]
+                FILE.write(Base.to_json_string(inst_list))
 
     @staticmethod
     def from_json_string(json_string):
@@ -69,11 +69,11 @@ class Base:
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                new = cls(1, 1)
+                inst = cls(1, 1)
             else:
-                new = cls(1)
-            new.update(**dictionary)
-            return new
+                inst = cls(1)
+            inst.update(**dictionary)
+            return inst
 
     @classmethod
     def load_from_file(cls):
@@ -85,9 +85,9 @@ class Base:
         """
         filename = str(cls.__name__) + ".json"
         try:
-            with open(filename, "r") as jsonfile:
-                list_dicts = Base.from_json_string(jsonfile.read())
-                return [cls.create(**d) for d in list_dicts]
+            with open(filename, "r") as FILE:
+                inst_list = Base.from_json_string(FILE.read())
+                return [cls.create(**inst) for inst in inst_list]
         except IOError:
             return []
 
@@ -98,15 +98,15 @@ class Base:
             list_objs (list): A list of inherited Base instances.
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, "w", newline="") as csvfile:
+        with open(filename, "w", instline="") as csvfile:
             if list_objs is None or list_objs == []:
                 csvfile.write("[]")
             else:
                 if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
+                    list_attribute = ["id", "width", "height", "x", "y"]
                 else:
-                    fieldnames = ["id", "size", "x", "y"]
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    list_attribute = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=list_attribute)
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
 
@@ -120,14 +120,14 @@ class Base:
         """
         filename = cls.__name__ + ".csv"
         try:
-            with open(filename, "r", newline="") as csvfile:
+            with open(filename, "r", instline="") as csvfile:
                 if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
+                     list_attribute = ["id", "width", "height", "x", "y"]
                 else:
-                    fieldnames = ["id", "size", "x", "y"]
-                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items())
-                              for d in list_dicts]
-                return [cls.create(**d) for d in list_dicts]
+                     list_attribute = ["id", "size", "x", "y"]
+                inst_list = csv.DictReader(csvfile, fieldnames= list_attribute)
+                inst_list = [dict([k, int(v)] for k, v in d.items())
+                              for d in inst_list]
+                return [cls.create(**d) for d in inst_list]
         except IOError:
             return []

@@ -2,23 +2,25 @@
 """Defines a rectangle class."""
 from models.base import Base
 
-
 class Rectangle(Base):
     """Represent a rectangle."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle.
+        """
+        Initialize a new Rectangle.
+
         Args:
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
             x (int): The x coordinate of the new Rectangle.
             y (int): The y coordinate of the new Rectangle.
             id (int): The identity of the new Rectangle.
+
         Raises:
-            TypeError: If either of width or height is not an int.
-            ValueError: If either of width or height <= 0.
-            TypeError: If either of x or y is not an int.
-            ValueError: If either of x or y < 0.
+            TypeError: If either the width or height is not an int.
+            ValueError: If either the width or height is less than or equal to 0.
+            TypeError: If either the x or y is not an int.
+            ValueError: If either the x or y is less than 0.
         """
         self.width = width
         self.height = height
@@ -33,10 +35,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """
-        A setter function for the width
-        attribute
-        """
+        """A setter function for the width attribute."""
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -63,10 +62,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """
-        A setter function for the x
-        attribute.
-        """
+        """A setter function for the x attribute."""
         if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -80,9 +76,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """
-        A setter function for the y attribute
-        """
+        """A setter function for the y attribute."""
         if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -90,17 +84,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """
-        A function that returns the result
-        of multiplication width and height.
-        """
+        """A function that returns the result of multiplication width and height."""
         return (self.__width * self.__height)
 
     def display(self):
-        """
-        Displays a rectangle in the
-        stdout as # character according to width and height.
-        """
+        """Displays a rectangle in the stdout as # character according to width and height."""
         for y in range(self.__y):
             print("")
         for i in range(self.__height):
@@ -115,13 +103,10 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """
-        A function that updates the attributes
-        of the rectangle depending on how
-        many parameters given.
+        A function that updates the attributes of the rectangle depending on how many parameters given.
         """
         if args:
-            attributes = ["id", "_Rectangle__width",
-                          "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
+            attributes = ["id", "_Rectangle__width", "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
             for i in range(min(len(args), len(attributes))):
                 setattr(self, attributes[i], args[i])
         if kwargs:
