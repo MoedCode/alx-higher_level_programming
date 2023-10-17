@@ -7,6 +7,7 @@ from io import StringIO
 from unittest import TestCase
 from unittest.mock import patch
 
+
 class TestRectangleMethods(unittest.TestCase):
     """Test suite for the Rectangle class and its methods."""
 
@@ -53,6 +54,7 @@ class TestRectangleMethods(unittest.TestCase):
         rect_dict = new_rectangle.to_dictionary()
         expected_dict = {'id': 9, 'width': 5, 'height': 6, 'x': 7, 'y': 8}
         self.assertEqual(rect_dict, expected_dict)
+
 
 if __name__ == "__main__":
     unittest.main()
