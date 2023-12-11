@@ -6,7 +6,7 @@ if (isNaN(args[2])) {
 } else {
   let str = '';
   for (let i = 0; i < parseInt(args[2]); i++) {
-    str += 'x';
+    str += 'X';
   }
 
   for (let i = 0; i < parseInt(args[2]); i++) {
