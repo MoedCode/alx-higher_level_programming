@@ -1,3 +1,5 @@
 #!/usr/bin/node
-let C = "C is fun", PY = "Python is cool", JS = "JavaScript is amazing";
-console.log(`${C}\n${PY}\n${JS} `);
+// #!/usr/local/bin/node
+console.log('C is fun');
+console.log('Python is cool');
+console.log('JavaScript is amazing');
