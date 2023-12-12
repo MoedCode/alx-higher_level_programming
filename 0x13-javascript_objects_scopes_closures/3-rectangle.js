@@ -6,10 +6,10 @@ class Rectangle {
       this.width = w;
       this.height = h;
       this.print = function () {
-        for (let i = 0; i < this.width; i++) {
-          let wbuff = '';
-          for (let i = 0; i < this.height; i++) { wbuff += 'X'; }
-          console.log(wbuff);
+        for (let i = 0; i < this.height; i++) {
+          let Rbuff = '';
+          for (let i = 0; i < this.width; i++) { Rbuff += 'X'; }
+          console.log(Rbuff);
         }
       };
     }
