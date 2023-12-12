@@ -8,13 +8,13 @@ class Rectangle {
     }
   }
 
-  print = function () {
+  print () {
     for (let i = 0; i < this.height; i++) {
       let Rbuff = '';
       for (let i = 0; i < this.width; i++) { Rbuff += 'X'; }
       console.log(Rbuff);
     }
-  };
+  }
 }
 
 module.exports = Rectangle;
