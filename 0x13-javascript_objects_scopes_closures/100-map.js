@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const cursedList = require('./100-data').list;
 
-const damenList = cursedList.map(function(num, indx){
-    return num * indx
+const damenList = cursedList.map(function (num, indx) {
+  return num * indx;
 });
 
 /*
