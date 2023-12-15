@@ -11,7 +11,7 @@ if __name__ == "__main__":
                          user=argv[1], passwd=argv[2], dp=argv[3])
     cursor = dp.cursor()
     cursor.execute(
-        "    SELECT * FROM states WHERE LIKE %s ORDER BY id ASC", (argv[4], ))
+        "    SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (argv[4], ))
 
     rows = cursor.fetchall()
     for row in rows:
