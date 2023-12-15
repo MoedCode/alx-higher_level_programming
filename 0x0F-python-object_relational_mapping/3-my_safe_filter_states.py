@@ -9,11 +9,11 @@ if __name__ == "__main__":
     from sys import argv
 
     namae = argv[4]
-    dp = MySQLdb.Connect(host="localhost", port=3306,
+    db = MySQLdb.Connect(host="localhost", port=3306,
                          user=argv[1], passwd=argv[2], dp=argv[3])
-    cursor = dp.cursor()
+    cursor = db.cursor()
     cursor.execute(
-        "    SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (namae, ))
+        "    SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (argv[4], ))
 
     rows = cursor.fetchall()
     for row in rows:
