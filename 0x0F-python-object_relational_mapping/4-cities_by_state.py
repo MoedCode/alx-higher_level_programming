@@ -12,8 +12,8 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3])
     cursor = db.cursor()
     # cursor.execute("SELECT * FROM cities ORDER BY id ASC")
-    cursor.execute(
-        "SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states ON states.id=cities.state_id;")
+    quarry_exe = "SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states ON states.id=cities.state_id;"
+    cursor.execute(quarry_exe)
 
     rows = cursor.fetchall()
 
