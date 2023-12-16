@@ -13,4 +13,5 @@ if __name__ == "__main__":
            states.id=cities.state_id WHERE states.name=%s"""
     cursor.execute(qur_exe, (argv[4],))
     rows = cursor.fetchall()
+    print(rows)
     print(", ".join([row[0] for row in rows]))
