@@ -18,6 +18,3 @@ if __name__ == "__main__":
         .order_by(State.id).all()
     for each_state in state_list:
         print("{}: {}".format(each_state.id, each_state.name))
-    print()
-    print('_ '*50)
-    print(f"session.query{session.query}")
