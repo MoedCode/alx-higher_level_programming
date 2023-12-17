@@ -30,7 +30,8 @@
 # | 4  | Arkansas     |
 
 # The query statement:
-state_list = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+state_list = session.query(State).filter(
+    State.name.like('%a%')).order_by(State.id).all()
 
 # 1. session.query(State): Initiates a query for all columns in the State table.
 # Output (query object): SELECT * FROM State;
