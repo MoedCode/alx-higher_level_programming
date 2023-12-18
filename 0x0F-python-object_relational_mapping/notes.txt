@@ -1,2 +1,5 @@
 --search for mySQL CRUD operations -- optimization query --
+# technical monitor
+    Derrick Ampire
+    derrickampire
 -- احمد امام
