@@ -9,8 +9,8 @@ import urllib.request
 if __name__ == "__main__":
     URL = sys.argv[1]
     values = {"email": URL}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')
+    data = urllib.parse.urlencode(values).encode("utf-8")
     reqObj = urllib.request.Request(URL, data)
     with urllib.request.urlopen(reqObj) as response:
-        print(response.read().decode('utf-8'))
+        dec_res = response.read().decode('utf-8')
+        print(dec_res)
