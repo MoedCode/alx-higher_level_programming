@@ -13,7 +13,4 @@ if __name__ == "__main__":
     reqObj = urllib.request.Request(cmdURL)
 
     with urllib.request.urlopen(reqObj) as response:
-        resObj = dict(response.headers)
-        print(f"response object {reqObj}")
-        X_request_id = resObj.get("X_Request-Id")
-        print(X_request_id)
+        print(dict(response.headers).get("X-Request-Id"))
