@@ -1,13 +1,14 @@
 #!/usr/bin/python3
+
 """fetches X-Request-Id in the response header"""
-import requests
+
 import sys
+import requests
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    URL = sys.argv[1]
     email = sys.argv[2]
-    params = {"email": email}
-
-    response = requests.post(url, data=params)
-    print(response.text)
+    values = {"email": email}
+    response = requests.post(URL, data=values)
+    print(requests.text)
