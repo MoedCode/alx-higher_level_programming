@@ -10,4 +10,5 @@ if __name__ == "__main__":
 
     cmdURL = sys.argv[1]
     response = requests.get(cmdURL)
-    print(response.headers["X-Request-Id"])
+    X_Request_Id = response.headers["X-Request-Id"]
+    print(X_Request_Id)
