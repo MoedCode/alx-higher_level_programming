@@ -5,8 +5,6 @@ const fs = require('fs');
 // Get the file path from command-line arguments
 const filePath = process.argv[2];
 
-
-
 // Check if the file path is provided
 if (!filePath) {
   console.error('Usage: ./0-readme.js <file-path>');
