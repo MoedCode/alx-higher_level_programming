@@ -4,10 +4,7 @@ const request = require('request');
 
 const apiUrl = process.argv[2];
 
-if (!apiUrl) {
-  console.error('Usage: ./4-starwars_count.js <API_URL>');
-  process.exit(1);
-}
+
 
 request(apiUrl, (err, res, body) => {
   if (err) {
