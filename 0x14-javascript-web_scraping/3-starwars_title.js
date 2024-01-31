@@ -1,20 +1,17 @@
 #!/usr/bin/node
 
 const request = require('request');
-const { writeFile } = require('fs');
 
-const reqUrl = process.argv[2];
-const filePath = process.argv[3];
+const moviId = process.argv[2];
 
-if (!filePath && !reqUrl) {
-  console.error('Usage: ./0-readme.js <file-path>');
-  process.exit(1);
-}
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${moviId}`;
 
-request(reqUrl, (err, res, body) => {
-  err && console.log(err.body);
-  err && process.exit(1);
-  writeFile(filePath, body, 'utf-8', (err) => {
-    err && console.log(err);
-  });
+request(apiUrl, (err, res, body) => {
+  if (err) {
+    console.err('Error', err);
+    return;
+  }
+  const filmObj = JSON.parse(body);
+  filmObj.title && console.log(filmObj.title);
+  !filmObj.title && console.log('Movie not found!');
 });
