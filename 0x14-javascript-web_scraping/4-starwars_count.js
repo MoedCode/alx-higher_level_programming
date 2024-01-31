@@ -1,35 +1,23 @@
 #!/usr/bin/node
-
 const request = require('request');
 
-const apiUrl = process.argv[2];
+// The URL for the Star Wars films API
+const url = process.argv[2];
 
-if (!apiUrl) {
-  console.error('Usage: ./4-starwars_count.js <API_URL>');
-  process.exit(1);
-}
+// Send a GET request to the API
+request.get(url, (err, res) => {
+  if (!err) {
+    const films = JSON.parse(res.body).results;
+    let i = 0;
 
-request(apiUrl, (err, res, body) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-
-  try {
-    const filmsObj = JSON.parse(body).results;
-
-    // Check if filmsObj is an array
-    if (Array.isArray(filmsObj)) {
-      const machArr = filmsObj.filter(film =>
-        film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
-      );
-      console.log(machArr.length);
-    } else {
-      console.error('Unexpected response format from the API');
-      process.exit(1);
+    for (const film of films) {
+      if (film.characters.includes(
+        'https://swapi-api.alx-tools.com/api/people/18/'
+      )) {
+        i += 1;
+      }
     }
-  } catch (parseError) {
-    console.error('Error parsing JSON:', parseError);
-    process.exit(1);
+
+    console.log(i);
   }
 });
