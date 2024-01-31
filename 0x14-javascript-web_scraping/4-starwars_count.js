@@ -1,8 +1,9 @@
 #!/usr/bin/node
+const { argv } = require('process');
 const request = require('request');
 
 // The URL for the Star Wars films API
-const url = process.argv[2];
+const url = argv[2];
 
 // Send a GET request to the API
 request.get(url, (err, res) => {
