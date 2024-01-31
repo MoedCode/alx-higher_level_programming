@@ -1,24 +1,21 @@
 #!/usr/bin/node
-const { argv } = require('process');
+
 const request = require('request');
+const apiUrl = process.argv[2];
+const characterId = '/people/18';
 
-// The URL for the Star Wars films API
-const url = argv[2];
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error(error);
+  } else {
+    const films = JSON.parse(body).results;
+    let totalMovies = 0;
 
-// Send a GET request to the API
-request.get(url, (err, res) => {
-  if (!err) {
-    const films = JSON.parse(res.body).results;
-    let i = 0;
+    films.forEach((movie) => {
+      const hasCharacter = movie.characters.some(apiUrl => apiUrl.includes(characterId));
+      if (hasCharacter) totalMovies += 1;
+    });
 
-    for (const film of films) {
-      if (film.characters.includes(
-        'https://swapi-api.alx-tools.com/api/people/18/'
-      )) {
-        i += 1;
-      }
-    }
-
-    console.log(i);
+    console.log(totalMovies);
   }
 });
