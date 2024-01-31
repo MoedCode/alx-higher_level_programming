@@ -1,43 +1,41 @@
 #!/usr/bin/node
-const request = require('request');
+const request = require('request-promise-native'); // Use 'request-promise-native' for Promise-based requests
 
-const movieId = process.argv[2];
-
-if (!movieId) {
-  console.error('Usage: ./101-starwars_characters.js <Movie ID>');
-  process.exit(1);
+async function getMovieData (movieId) {
+  const url = `https://swapi-api.hbtn.io/api/films/${movieId}`;
+  try {
+    const response = await request(url);
+    return JSON.parse(response);
+  } catch (error) {
+    console.error(`Error fetching movie data: ${error.message}`);
+    process.exit(1);
+  }
 }
 
-const apiUrl = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
-
-request(apiUrl, function (error, response, body) {
-  if (error) {
-    console.error(error);
-    process.exit(1);
-  }
-
-  if (response.statusCode !== 200) {
-    console.error(`Error: ${response.statusCode}`);
-    process.exit(1);
-  }
-
-  const filmData = JSON.parse(body);
-  const characters = filmData.characters;
-
-  characters.forEach(characterUrl => {
-    request(characterUrl, function (charError, charResponse, charBody) {
-      if (charError) {
-        console.error(charError);
-        process.exit(1);
-      }
-
-      if (charResponse.statusCode !== 200) {
-        console.error(`Error: ${charResponse.statusCode}`);
-        process.exit(1);
-      }
-
-      const characterData = JSON.parse(charBody);
+async function printCharacters (characterUrls) {
+  for (const characterUrl of characterUrls) {
+    try {
+      const response = await request(characterUrl);
+      const characterData = JSON.parse(response);
       console.log(characterData.name);
-    });
-  });
-});
+    } catch (error) {
+      console.error(`Error fetching character data: ${error.message}`);
+      process.exit(1);
+    }
+  }
+}
+
+async function main () {
+  const movieId = process.argv[2];
+
+  if (!movieId) {
+    console.error('Usage: ./101-starwars_characters.js <Movie ID>');
+    process.exit(1);
+  }
+
+  const movieData = await getMovieData(movieId);
+  const characters = movieData.characters;
+  await printCharacters(characters);
+}
+
+main();
